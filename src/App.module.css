@@ -1,0 +1,19 @@
+.App {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 1.1em;
+}
+
+li {
+    list-style-type: none;
+}
+
+.buttons {
+    display: flex;
+}
+
+.button {
+    margin: 10px;
+}
