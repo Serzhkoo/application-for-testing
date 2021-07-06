@@ -1,4 +1,5 @@
 import {v1 as uuidv1} from "uuid";
+import { AlertSwitcherType, FormSwitcherType } from './AppTypes';
 
 export const initialNewQuestion = {
     id: uuidv1(),
@@ -11,6 +12,7 @@ export const initialNewQuestion = {
     ],
     correctAnswers: []
 };
+
 export const initialQuestions = [
     {
         id: uuidv1(),
@@ -68,3 +70,13 @@ export const initialQuestions = [
         correctAnswers: [1, 2]
     },
 ];
+
+export const initialFormDialog = {
+    formSwitcher: 0 as FormSwitcherType,
+    isFormDialogActive: false
+};
+
+export const initialAlertDialog = {
+    alertSwitcher: 1 as AlertSwitcherType,
+    isAlertDialogActive: false
+}

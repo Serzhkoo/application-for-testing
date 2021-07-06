@@ -1,38 +1,39 @@
-import React from "react";
+import React from 'react';
 
-import {AnswersType, QuestionPropsType} from "../AppTypes";
-import {Checkbox} from "@material-ui/core";
+import { AnswersType, QuestionPropsType } from '../AppTypes';
+import { Checkbox } from '@material-ui/core';
 
-export const Question: React.FC<QuestionPropsType> = ({
-                                                          questionIndex,
-                                                          title,
-                                                          answers,
-                                                          changeAnswerStatus
-                                                      }) => {
+export const Question: React.FC<QuestionPropsType> = React.memo(({
+                                                                   questionIndex,
+                                                                   title,
+                                                                   answers,
+                                                                   changeAnswerStatus
+                                                                 }) => {
+  console.log('Questions');
 
-    const onChangeAnswerStatus = (answerIndex: number, checked: boolean): void => {
-        changeAnswerStatus(answerIndex, questionIndex, checked);
-    }
+  const onChangeAnswerStatus = (answerIndex: number, checked: boolean): void => {
+    changeAnswerStatus(answerIndex, questionIndex, checked);
+  };
 
-    return (
-        <div>
-            <div>
-                <label><b>{title}</b></label>
-            </div>
-            <ul>
-                {answers.map((answer: AnswersType, answerIndex: number) => <li key={answer.id}>
-                        <Checkbox
-                            checked={answer.checked}
-                            onChange={() => onChangeAnswerStatus(answerIndex, answer.checked)}
-                            size="small"
-                            inputProps={{'aria-label': 'checkbox with small size'}}
-                            color="primary"
-                        />
-                    <label>{answer.title}</label>
-                    </li>
-                )
-                }
-            </ul>
-        </div>
-    )
-}
+  return (
+    <div>
+      <div>
+        <label><b>{title}</b></label>
+      </div>
+      <ul>
+        {answers.map((answer: AnswersType, answerIndex: number) => <li key={answer.id}>
+            <Checkbox
+              checked={answer.checked}
+              onChange={() => onChangeAnswerStatus(answerIndex, answer.checked)}
+              size="small"
+              inputProps={{ 'aria-label': 'checkbox with small size' }}
+              color="primary"
+            />
+            <label>{answer.title}</label>
+          </li>
+        )
+        }
+      </ul>
+    </div>
+  );
+});
